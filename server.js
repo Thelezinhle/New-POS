@@ -10,41 +10,41 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ========== REALISTIC PRODUCT DATA ==========
 let products = [
   // Beverages
-  { id: 1, name: 'Coca-Cola 500ml', price: 2.49, category: 'Beverages', stock: 150, barcode: '5449000000996', image: '🥤' },
-  { id: 2, name: 'Pepsi 500ml', price: 2.49, category: 'Beverages', stock: 120, barcode: '4060800001015', image: '🥤' },
-  { id: 3, name: 'Spring Water 1L', price: 1.29, category: 'Beverages', stock: 200, barcode: '5000112558310', image: '💧' },
-  { id: 4, name: 'Orange Juice 1L', price: 3.99, category: 'Beverages', stock: 45, barcode: '5000112558327', image: '🍊' },
-  { id: 5, name: 'Coffee Latte', price: 4.50, category: 'Beverages', stock: 80, barcode: '8001120001234', image: '☕' },
-  { id: 6, name: 'Green Tea', price: 2.99, category: 'Beverages', stock: 60, barcode: '8001120001241', image: '🍵' },
+  { id: 1, name: 'Coca-Cola 500ml', price: 2.49, category: 'Beverages', stock: 150, barcode: '5449000000996' },
+  { id: 2, name: 'Pepsi 500ml', price: 2.49, category: 'Beverages', stock: 120, barcode: '4060800001015' },
+  { id: 3, name: 'Spring Water 1L', price: 1.29, category: 'Beverages', stock: 200, barcode: '5000112558310' },
+  { id: 4, name: 'Orange Juice 1L', price: 3.99, category: 'Beverages', stock: 45, barcode: '5000112558327' },
+  { id: 5, name: 'Coffee Latte', price: 4.50, category: 'Beverages', stock: 80, barcode: '8001120001234' },
+  { id: 6, name: 'Green Tea', price: 2.99, category: 'Beverages', stock: 60, barcode: '8001120001241' },
   
   // Snacks
-  { id: 7, name: 'Lay\'s Classic Chips', price: 3.49, category: 'Snacks', stock: 75, barcode: '0028400055888', image: '🥔' },
-  { id: 8, name: 'Doritos Nacho', price: 3.99, category: 'Snacks', stock: 50, barcode: '0028400064576', image: '🌮' },
-  { id: 9, name: 'Snickers Bar', price: 1.79, category: 'Snacks', stock: 100, barcode: '5000159407236', image: '🍫' },
-  { id: 10, name: 'KitKat 4 Finger', price: 1.49, category: 'Snacks', stock: 90, barcode: '5000159407243', image: '🍫' },
-  { id: 11, name: 'Pringles Original', price: 4.29, category: 'Snacks', stock: 40, barcode: '5053990101658', image: '🥔' },
+  { id: 7, name: 'Lay\'s Classic Chips', price: 3.49, category: 'Snacks', stock: 75, barcode: '0028400055888' },
+  { id: 8, name: 'Doritos Nacho', price: 3.99, category: 'Snacks', stock: 50, barcode: '0028400064576' },
+  { id: 9, name: 'Snickers Bar', price: 1.79, category: 'Snacks', stock: 100, barcode: '5000159407236' },
+  { id: 10, name: 'KitKat 4 Finger', price: 1.49, category: 'Snacks', stock: 90, barcode: '5000159407243' },
+  { id: 11, name: 'Pringles Original', price: 4.29, category: 'Snacks', stock: 40, barcode: '5053990101658' },
   
   // Bakery
-  { id: 12, name: 'Fresh Croissant', price: 2.99, category: 'Bakery', stock: 25, barcode: '2000001000012', image: '🥐' },
-  { id: 13, name: 'Blueberry Muffin', price: 3.49, category: 'Bakery', stock: 20, barcode: '2000001000029', image: '🧁' },
-  { id: 14, name: 'Whole Wheat Bread', price: 4.99, category: 'Bakery', stock: 30, barcode: '2000001000036', image: '🍞' },
-  { id: 15, name: 'Chocolate Donut', price: 1.99, category: 'Bakery', stock: 35, barcode: '2000001000043', image: '🍩' },
+  { id: 12, name: 'Fresh Croissant', price: 2.99, category: 'Bakery', stock: 25, barcode: '2000001000012' },
+  { id: 13, name: 'Blueberry Muffin', price: 3.49, category: 'Bakery', stock: 20, barcode: '2000001000029' },
+  { id: 14, name: 'Whole Wheat Bread', price: 4.99, category: 'Bakery', stock: 30, barcode: '2000001000036' },
+  { id: 15, name: 'Chocolate Donut', price: 1.99, category: 'Bakery', stock: 35, barcode: '2000001000043' },
   
   // Dairy
-  { id: 16, name: 'Whole Milk 1L', price: 2.79, category: 'Dairy', stock: 60, barcode: '3000001000016', image: '🥛' },
-  { id: 17, name: 'Greek Yogurt', price: 3.99, category: 'Dairy', stock: 40, barcode: '3000001000023', image: '🥛' },
-  { id: 18, name: 'Cheddar Cheese 200g', price: 5.99, category: 'Dairy', stock: 35, barcode: '3000001000030', image: '🧀' },
-  { id: 19, name: 'Butter 250g', price: 4.49, category: 'Dairy', stock: 45, barcode: '3000001000047', image: '🧈' },
+  { id: 16, name: 'Whole Milk 1L', price: 2.79, category: 'Dairy', stock: 60, barcode: '3000001000016' },
+  { id: 17, name: 'Greek Yogurt', price: 3.99, category: 'Dairy', stock: 40, barcode: '3000001000023' },
+  { id: 18, name: 'Cheddar Cheese 200g', price: 5.99, category: 'Dairy', stock: 35, barcode: '3000001000030' },
+  { id: 19, name: 'Butter 250g', price: 4.49, category: 'Dairy', stock: 45, barcode: '3000001000047' },
   
   // Fresh Food
-  { id: 20, name: 'Chicken Sandwich', price: 6.99, category: 'Fresh Food', stock: 15, barcode: '4000001000020', image: '🥪' },
-  { id: 21, name: 'Caesar Salad', price: 7.99, category: 'Fresh Food', stock: 12, barcode: '4000001000037', image: '🥗' },
-  { id: 22, name: 'Veggie Wrap', price: 5.99, category: 'Fresh Food', stock: 18, barcode: '4000001000044', image: '🌯' },
-  { id: 23, name: 'Fruit Cup', price: 4.49, category: 'Fresh Food', stock: 20, barcode: '4000001000051', image: '🍓' },
+  { id: 20, name: 'Chicken Sandwich', price: 6.99, category: 'Fresh Food', stock: 15, barcode: '4000001000020' },
+  { id: 21, name: 'Caesar Salad', price: 7.99, category: 'Fresh Food', stock: 12, barcode: '4000001000037' },
+  { id: 22, name: 'Veggie Wrap', price: 5.99, category: 'Fresh Food', stock: 18, barcode: '4000001000044' },
+  { id: 23, name: 'Fruit Cup', price: 4.49, category: 'Fresh Food', stock: 20, barcode: '4000001000051' },
   
   // Household
-  { id: 24, name: 'Paper Towels', price: 6.99, category: 'Household', stock: 50, barcode: '5000001000024', image: '🧻' },
-  { id: 25, name: 'Hand Soap 500ml', price: 3.99, category: 'Household', stock: 40, barcode: '5000001000031', image: '🧴' },
+  { id: 24, name: 'Paper Towels', price: 6.99, category: 'Household', stock: 50, barcode: '5000001000024' },
+  { id: 25, name: 'Hand Soap 500ml', price: 3.99, category: 'Household', stock: 40, barcode: '5000001000031' },
 ];
 
 // ========== REALISTIC CUSTOMER DATA ==========
