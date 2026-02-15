@@ -7,50 +7,47 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ========== USER ACCOUNTS ==========
-let users = [
-  // Cashiers
-  { id: 1, username: 'cashier1', password: 'cash123', role: 'cashier', name: 'John Smith', email: 'john.smith@store.com' },
-  { id: 2, username: 'cashier2', password: 'cash123', role: 'cashier', name: 'Mary Johnson', email: 'mary.j@store.com' },
-  { id: 3, username: 'admin', password: 'admin123', role: 'cashier', name: 'Admin User', email: 'admin@store.com' },
-  // Customer accounts (linked to customer data)
-  { id: 4, username: 'sarah.j', password: 'cust123', role: 'customer', name: 'Sarah Johnson', email: 'sarah.johnson@gmail.com', customerId: 1 },
-  { id: 5, username: 'mchen', password: 'cust123', role: 'customer', name: 'Michael Chen', email: 'mchen88@yahoo.com', customerId: 2 },
-  { id: 6, username: 'emily.r', password: 'cust123', role: 'customer', name: 'Emily Rodriguez', email: 'emily.r@outlook.com', customerId: 3 },
-  { id: 7, username: 'jwilliams', password: 'cust123', role: 'customer', name: 'James Williams', email: 'jwilliams@email.com', customerId: 4 },
-  { id: 8, username: 'amanda.f', password: 'cust123', role: 'customer', name: 'Amanda Foster', email: 'amanda.foster@gmail.com', customerId: 5 },
-];
-
-// ========== PRODUCT DATA ==========
+// ========== REALISTIC PRODUCT DATA ==========
 let products = [
+  // Beverages
   { id: 1, name: 'Coca-Cola 500ml', price: 2.49, category: 'Beverages', stock: 150, barcode: '5449000000996' },
   { id: 2, name: 'Pepsi 500ml', price: 2.49, category: 'Beverages', stock: 120, barcode: '4060800001015' },
   { id: 3, name: 'Spring Water 1L', price: 1.29, category: 'Beverages', stock: 200, barcode: '5000112558310' },
   { id: 4, name: 'Orange Juice 1L', price: 3.99, category: 'Beverages', stock: 45, barcode: '5000112558327' },
   { id: 5, name: 'Coffee Latte', price: 4.50, category: 'Beverages', stock: 80, barcode: '8001120001234' },
   { id: 6, name: 'Green Tea', price: 2.99, category: 'Beverages', stock: 60, barcode: '8001120001241' },
+  
+  // Snacks
   { id: 7, name: 'Lay\'s Classic Chips', price: 3.49, category: 'Snacks', stock: 75, barcode: '0028400055888' },
   { id: 8, name: 'Doritos Nacho', price: 3.99, category: 'Snacks', stock: 50, barcode: '0028400064576' },
   { id: 9, name: 'Snickers Bar', price: 1.79, category: 'Snacks', stock: 100, barcode: '5000159407236' },
   { id: 10, name: 'KitKat 4 Finger', price: 1.49, category: 'Snacks', stock: 90, barcode: '5000159407243' },
   { id: 11, name: 'Pringles Original', price: 4.29, category: 'Snacks', stock: 40, barcode: '5053990101658' },
+  
+  // Bakery
   { id: 12, name: 'Fresh Croissant', price: 2.99, category: 'Bakery', stock: 25, barcode: '2000001000012' },
   { id: 13, name: 'Blueberry Muffin', price: 3.49, category: 'Bakery', stock: 20, barcode: '2000001000029' },
   { id: 14, name: 'Whole Wheat Bread', price: 4.99, category: 'Bakery', stock: 30, barcode: '2000001000036' },
   { id: 15, name: 'Chocolate Donut', price: 1.99, category: 'Bakery', stock: 35, barcode: '2000001000043' },
+  
+  // Dairy
   { id: 16, name: 'Whole Milk 1L', price: 2.79, category: 'Dairy', stock: 60, barcode: '3000001000016' },
   { id: 17, name: 'Greek Yogurt', price: 3.99, category: 'Dairy', stock: 40, barcode: '3000001000023' },
   { id: 18, name: 'Cheddar Cheese 200g', price: 5.99, category: 'Dairy', stock: 35, barcode: '3000001000030' },
   { id: 19, name: 'Butter 250g', price: 4.49, category: 'Dairy', stock: 45, barcode: '3000001000047' },
+  
+  // Fresh Food
   { id: 20, name: 'Chicken Sandwich', price: 6.99, category: 'Fresh Food', stock: 15, barcode: '4000001000020' },
   { id: 21, name: 'Caesar Salad', price: 7.99, category: 'Fresh Food', stock: 12, barcode: '4000001000037' },
   { id: 22, name: 'Veggie Wrap', price: 5.99, category: 'Fresh Food', stock: 18, barcode: '4000001000044' },
   { id: 23, name: 'Fruit Cup', price: 4.49, category: 'Fresh Food', stock: 20, barcode: '4000001000051' },
+  
+  // Household
   { id: 24, name: 'Paper Towels', price: 6.99, category: 'Household', stock: 50, barcode: '5000001000024' },
   { id: 25, name: 'Hand Soap 500ml', price: 3.99, category: 'Household', stock: 40, barcode: '5000001000031' },
 ];
 
-// ========== CUSTOMER DATA ==========
+// ========== REALISTIC CUSTOMER DATA ==========
 let customers = [
   { id: 1, name: 'Sarah Johnson', email: 'sarah.johnson@gmail.com', phone: '(555) 123-4567', address: '123 Oak Street, Springfield, IL 62701', loyaltyPoints: 2450, memberSince: '2023-03-15' },
   { id: 2, name: 'Michael Chen', email: 'mchen88@yahoo.com', phone: '(555) 234-5678', address: '456 Maple Ave, Chicago, IL 60601', loyaltyPoints: 1890, memberSince: '2023-06-22' },
@@ -66,65 +63,11 @@ let customers = [
 
 // ========== SALES DATA ==========
 let sales = [];
-let saleIdCounter = 1000;
+let saleIdCounter = 1000; // Start from 1000 for realistic receipt numbers
 
-// ========== AUTH ROUTES ==========
-app.post('/api/login', (req, res) => {
-  const { username, password } = req.body;
-  const user = users.find(u => u.username === username && u.password === password);
-  if (user) {
-    const { password: _, ...userWithoutPassword } = user;
-    if (user.role === 'customer') {
-      const customer = customers.find(c => c.id === user.customerId);
-      res.json({ success: true, user: { ...userWithoutPassword, customerData: customer } });
-    } else {
-      res.json({ success: true, user: userWithoutPassword });
-    }
-  } else {
-    res.status(401).json({ success: false, error: 'Invalid username or password' });
-  }
-});
+// ========== API ROUTES ==========
 
-app.post('/api/register', (req, res) => {
-  const { username, password, name, email, phone, address, role } = req.body;
-  
-  if (users.find(u => u.username === username)) {
-    return res.status(400).json({ success: false, error: 'Username already exists' });
-  }
-  
-  if (role === 'customer') {
-    // Create customer record
-    const newCustomer = {
-      id: customers.length + 1,
-      name,
-      email,
-      phone: phone || '',
-      address: address || '',
-      loyaltyPoints: 0,
-      memberSince: new Date().toISOString().split('T')[0]
-    };
-    customers.push(newCustomer);
-    
-    // Create user account
-    const newUser = {
-      id: users.length + 1,
-      username,
-      password,
-      role: 'customer',
-      name,
-      email,
-      customerId: newCustomer.id
-    };
-    users.push(newUser);
-    
-    const { password: _, ...userWithoutPassword } = newUser;
-    res.status(201).json({ success: true, user: { ...userWithoutPassword, customerData: newCustomer } });
-  } else {
-    res.status(400).json({ success: false, error: 'Only customer registration is allowed' });
-  }
-});
-
-// ========== PRODUCT ROUTES ==========
+// Products
 app.get('/api/products', (req, res) => res.json(products));
 app.get('/api/products/:id', (req, res) => {
   const product = products.find(p => p.id === parseInt(req.params.id));
@@ -151,11 +94,21 @@ app.get('/api/categories', (req, res) => {
   res.json(categories);
 });
 
-// ========== CUSTOMER ROUTES ==========
+// Customers
 app.get('/api/customers', (req, res) => res.json(customers));
 app.get('/api/customers/:id', (req, res) => {
   const customer = customers.find(c => c.id === parseInt(req.params.id));
   customer ? res.json(customer) : res.status(404).json({ error: 'Not found' });
+});
+app.post('/api/customers', (req, res) => {
+  const newCustomer = { 
+    id: customers.length + 1, 
+    ...req.body,
+    loyaltyPoints: 0,
+    memberSince: new Date().toISOString().split('T')[0]
+  };
+  customers.push(newCustomer);
+  res.status(201).json(newCustomer);
 });
 app.put('/api/customers/:id', (req, res) => {
   const idx = customers.findIndex(c => c.id === parseInt(req.params.id));
@@ -167,24 +120,14 @@ app.put('/api/customers/:id', (req, res) => {
   }
 });
 
-// ========== SALES ROUTES ==========
-app.get('/api/sales', (req, res) => {
-  const { customerId } = req.query;
-  if (customerId) {
-    const customerSales = sales.filter(s => s.customerId === parseInt(customerId));
-    res.json(customerSales.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)));
-  } else {
-    res.json(sales.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)));
-  }
-});
-
+// Sales/POS
+app.get('/api/sales', (req, res) => res.json(sales.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))));
 app.get('/api/sales/:id', (req, res) => {
   const sale = sales.find(s => s.id === parseInt(req.params.id));
   sale ? res.json(sale) : res.status(404).json({ error: 'Not found' });
 });
-
 app.post('/api/sales', (req, res) => {
-  const { items, customerId, paymentMethod, amountTendered, cashierId, cashierName } = req.body;
+  const { items, customerId, paymentMethod, amountTendered } = req.body;
   
   let subtotal = 0;
   const saleItems = items.map(item => {
@@ -206,15 +149,16 @@ app.post('/api/sales', (req, res) => {
     return item;
   });
 
-  const tax = subtotal * 0.08;
+  const tax = subtotal * 0.08; // 8% tax
   const total = subtotal + tax;
   const change = amountTendered ? amountTendered - total : 0;
 
+  // Update customer loyalty points
   let customer = null;
   if (customerId) {
     customer = customers.find(c => c.id === customerId);
     if (customer) {
-      customer.loyaltyPoints += Math.floor(total);
+      customer.loyaltyPoints += Math.floor(total); // 1 point per dollar
     }
   }
 
@@ -230,8 +174,7 @@ app.post('/api/sales', (req, res) => {
     paymentMethod: paymentMethod || 'cash',
     amountTendered: amountTendered || total,
     change: parseFloat(Math.max(0, change).toFixed(2)),
-    cashierId: cashierId || null,
-    cashier: cashierName || 'Cashier',
+    cashier: 'Demo User',
     timestamp: new Date().toISOString(),
   };
   
@@ -239,13 +182,14 @@ app.post('/api/sales', (req, res) => {
   res.status(201).json(sale);
 });
 
-// ========== STATS ROUTES ==========
+// Dashboard stats
 app.get('/api/stats', (req, res) => {
   const today = new Date().toISOString().split('T')[0];
   const todaySales = sales.filter(s => s.timestamp.startsWith(today));
   const totalSalesToday = todaySales.reduce((sum, s) => sum + s.total, 0);
   const totalTransactionsToday = todaySales.length;
   const lowStock = products.filter(p => p.stock < 20).length;
+  const outOfStock = products.filter(p => p.stock === 0).length;
   const allTimeRevenue = sales.reduce((sum, s) => sum + s.total, 0);
   
   res.json({
@@ -256,24 +200,23 @@ app.get('/api/stats', (req, res) => {
     totalProducts: products.length,
     totalCustomers: customers.length,
     lowStockItems: lowStock,
+    outOfStock: outOfStock,
+    topProducts: getTopProducts(),
   });
 });
 
-// Customer stats
-app.get('/api/stats/customer/:id', (req, res) => {
-  const customerId = parseInt(req.params.id);
-  const customer = customers.find(c => c.id === customerId);
-  const customerSales = sales.filter(s => s.customerId === customerId);
-  const totalSpent = customerSales.reduce((sum, s) => sum + s.total, 0);
-  
-  res.json({
-    customer,
-    totalOrders: customerSales.length,
-    totalSpent: totalSpent.toFixed(2),
-    loyaltyPoints: customer ? customer.loyaltyPoints : 0,
-    recentOrders: customerSales.slice(0, 5)
+function getTopProducts() {
+  const productSales = {};
+  sales.forEach(sale => {
+    sale.items.forEach(item => {
+      productSales[item.name] = (productSales[item.name] || 0) + item.quantity;
+    });
   });
-});
+  return Object.entries(productSales)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([name, qty]) => ({ name, qty }));
+}
 
 // Serve main page
 app.get('/', (req, res) => {
@@ -283,22 +226,12 @@ app.get('/', (req, res) => {
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`
-  ================================================
-       OpenSourcePOS Demo Running!            
-                                              
-       Open: http://localhost:${PORT}            
-                                              
-       CASHIER LOGINS:
-       - cashier1 / cash123
-       - cashier2 / cash123
-       - admin / admin123
-       
-       CUSTOMER LOGINS:
-       - sarah.j / cust123
-       - mchen / cust123
-       - emily.r / cust123
-                                              
-       Press Ctrl+C to stop                   
-  ================================================
+  ╔════════════════════════════════════════════╗
+  ║     OpenSourcePOS Demo Running!            ║
+  ║                                            ║
+  ║     Open: http://localhost:${PORT}            ║
+  ║                                            ║
+  ║     Press Ctrl+C to stop                   ║
+  ╚════════════════════════════════════════════╝
   `);
 });
