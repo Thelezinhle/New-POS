@@ -1,10 +1,13 @@
 {
-  "name": "ospos-demo",
+  "name": "quickmart-pos",
   "version": "1.0.0",
-  "description": "Simple OpenSourcePOS Demo",
+  "description": "QuickMart Self-Service POS System",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "cors": "^2.8.6",
