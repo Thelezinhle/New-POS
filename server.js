@@ -128,6 +128,19 @@ app.post('/api/products', (req, res) => {
   res.json(product);
 });
 
+// Update product stock
+app.put('/api/products/:id/stock', (req, res) => {
+  const { quantity } = req.body;
+  const product = products.find(p => p.id === parseInt(req.params.id));
+  if (product) {
+    product.stock += parseInt(quantity);
+    if (product.stock < 0) product.stock = 0;
+    res.json({ success: true, product });
+  } else {
+    res.json({ success: false, error: 'Product not found' });
+  }
+});
+
 // ========== CUSTOMER ENDPOINTS ==========
 app.get('/api/customers', (req, res) => res.json(customers));
 
@@ -229,6 +242,41 @@ app.get('/api/stats/customer/:customerId', (req, res) => {
     totalOrders: customerSales.length,
     totalSpent: customerSales.reduce((sum, s) => sum + s.total, 0).toFixed(2),
     loyaltyPoints: customer ? customer.loyaltyPoints : 0
+  });
+});
+
+// Sales trend data for graph (last 7 days)
+app.get('/api/stats/trend', (req, res) => {
+  const days = [];
+  for (let i = 6; i >= 0; i--) {
+    const date = new Date();
+    date.setDate(date.getDate() - i);
+    const dateStr = date.toDateString();
+    const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+    const daySales = sales.filter(s => new Date(s.timestamp).toDateString() === dateStr);
+    const revenue = daySales.reduce((sum, s) => sum + s.total, 0);
+    days.push({
+      day: dayName,
+      date: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+      revenue: revenue,
+      transactions: daySales.length
+    });
+  }
+  
+  const totalRevenue = sales.reduce((sum, s) => sum + s.total, 0);
+  const avgDaily = totalRevenue / 7;
+  const todayRevenue = days[6].revenue;
+  const yesterdayRevenue = days[5].revenue;
+  const trend = yesterdayRevenue > 0 ? ((todayRevenue - yesterdayRevenue) / yesterdayRevenue * 100).toFixed(1) : 0;
+  
+  res.json({
+    days,
+    summary: {
+      totalRevenue: totalRevenue.toFixed(2),
+      avgDaily: avgDaily.toFixed(2),
+      trendPercent: trend,
+      isPositive: todayRevenue >= yesterdayRevenue
+    }
   });
 });
 

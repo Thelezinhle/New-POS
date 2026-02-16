@@ -447,11 +447,11 @@
       border-radius: 16px;
       box-shadow: 0 3px 15px rgba(0,0,0,0.05);
     }
-    .stat-box .icon { font-size: 36px; margin-bottom: 10px; }
-    .stat-box .value { font-size: 38px; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+    .stat-box .icon { font-size: 28px; margin-bottom: 10px; color: #666; filter: grayscale(100%); }
+    .stat-box .value { font-size: 38px; font-weight: 700; color: #222; margin-bottom: 5px; }
     .stat-box .label { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-    .stat-box.highlight { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: #fff; }
-    .stat-box.highlight .value, .stat-box.highlight .label { color: #fff; }
+    .stat-box.highlight { background: #f5f5f5; border: 2px solid #ddd; }
+    .stat-box.highlight .value, .stat-box.highlight .label { color: #222; }
 
     .data-card {
       background: #fff;
@@ -485,6 +485,154 @@
     .stock-bar-fill { height: 100%; background: var(--success); border-radius: 4px; }
     .stock-bar-fill.low { background: var(--warning); }
     .stock-bar-fill.critical { background: var(--danger); }
+
+    /* HELPER CLASSES - replacing inline styles */
+    .text-center { text-align: center; }
+    .text-muted { color: #888; }
+    .mt-sm { margin-top: 8px; }
+    .mt-md { margin-top: 15px; }
+    .mt-lg { margin-top: 25px; }
+    .mb-sm { margin-bottom: 8px; }
+    .mb-md { margin-bottom: 12px; }
+    .pt-md { padding-top: 20px; }
+    .border-top { border-top: 1px solid #eee; }
+    .font-small { font-size: 13px; }
+    .font-mono { font-family: monospace; }
+    .inline-block { display: inline-block; }
+    .demo-info { font-size: 13px; }
+    .new-customer-text { color: #888; margin-bottom: 12px; }
+    .empty-table-cell { text-align: center; color: #888; padding: 40px !important; }
+    .text-success { color: var(--success); }
+    .store-logo-text { font-size: 32px; font-weight: 700; }
+    .receipt-payment-row { margin-top: 12px; }
+
+    /* STOCK UPDATE FORM */
+    .stock-update-form {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stock-input {
+      width: 80px;
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      text-align: center;
+    }
+    .stock-input:focus { outline: none; border-color: var(--primary); }
+    .btn-stock {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-stock-add { background: var(--success); color: #fff; }
+    .btn-stock-add:hover { background: #1e421b; }
+
+    /* REVENUE GRAPH */
+    .graph-container {
+      padding: 25px;
+      background: #fff;
+      border-radius: 16px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    }
+    .graph-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 20px; }
+    .graph-canvas { width: 100%; height: 250px; position: relative; }
+    .graph-bars {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      height: 200px;
+      padding: 0 20px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    .graph-bar-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      max-width: 80px;
+    }
+    .graph-bar {
+      width: 40px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 4px 4px 0 0;
+      transition: height 0.5s ease;
+      min-height: 4px;
+    }
+    .graph-bar.positive { background: linear-gradient(180deg, #2d5a27 0%, #1e421b 100%); }
+    .graph-bar.negative { background: linear-gradient(180deg, #8b1414 0%, #5a0f0f 100%); }
+    .graph-label {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .graph-value {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .graph-legend {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #666;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .legend-dot.positive { background: #2d5a27; }
+    .legend-dot.negative { background: #8b1414; }
+    .legend-dot.neutral { background: var(--primary); }
+
+    /* PERFORMANCE SUMMARY */
+    .performance-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    .perf-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    }
+    .perf-card.success { border-left: 4px solid var(--success); }
+    .perf-card.warning { border-left: 4px solid var(--warning); }
+    .perf-card.danger { border-left: 4px solid var(--danger); }
+    .perf-value { font-size: 32px; font-weight: 700; margin-bottom: 5px; }
+    .perf-card.success .perf-value { color: var(--success); }
+    .perf-card.warning .perf-value { color: var(--warning); }
+    .perf-card.danger .perf-value { color: var(--danger); }
+    .perf-label { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+    .perf-trend { font-size: 13px; margin-top: 10px; }
+    .trend-up { color: var(--success); }
+    .trend-down { color: var(--danger); }
+
+    /* DASHBOARD GRID */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
 
     .hidden { display: none !important; }
   </style>
@@ -549,13 +697,13 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
       </form>
-      <div id="registerLink" style="margin-top: 25px; text-align: center;">
-        <p style="color: #888; margin-bottom: 12px;">New customer?</p>
+      <div id="registerLink" class="mt-lg text-center">
+        <p class="new-customer-text">New customer?</p>
         <button class="btn btn-secondary btn-block" onclick="showRegister()">Create Free Account</button>
       </div>
-      <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee; font-size: 13px; color: #888; text-align: center;">
+      <div class="mt-lg pt-md border-top demo-info text-muted text-center">
         <strong>Demo Accounts:</strong><br>
-        <span style="display: inline-block; margin-top: 8px;">Admin: <code>admin</code> / <code>admin123</code></span><br>
+        <span class="inline-block mt-sm">Admin: <code>admin</code> / <code>admin123</code></span><br>
         <span>Member: <code>sarah.j</code> / <code>cust123</code></span>
       </div>
     </div>
@@ -590,7 +738,7 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block btn-lg">Create Account</button>
       </form>
-      <button class="btn btn-secondary btn-block" style="margin-top: 15px;" onclick="backToLogin()">Back to Sign In</button>
+      <button class="btn btn-secondary btn-block mt-md" onclick="backToLogin()">Back to Sign In</button>
     </div>
   </div>
 
@@ -632,7 +780,7 @@
           <div class="cart-empty">
             <div class="icon">&#128722;</div>
             <p>Your cart is empty</p>
-            <p style="font-size: 13px; margin-top: 8px;">Tap products to add them</p>
+            <p class="font-small mt-sm">Tap products to add them</p>
           </div>
         </div>
         <div class="cart-footer">
@@ -644,7 +792,7 @@
           <button class="btn btn-primary btn-block btn-lg" id="checkoutBtn" onclick="goToCheckout()" disabled>
             Proceed to Payment
           </button>
-          <button class="btn btn-secondary btn-block" onclick="clearCart()" style="margin-top: 12px;">Clear Cart</button>
+          <button class="btn btn-secondary btn-block mt-md" onclick="clearCart()">Clear Cart</button>
         </div>
       </div>
     </div>
@@ -716,7 +864,7 @@
       </div>
 
       <button class="btn btn-primary btn-block btn-lg" onclick="processPayment()">Complete Payment</button>
-      <button class="btn btn-secondary btn-block" onclick="backToCart()" style="margin-top: 15px;">Back to Cart</button>
+      <button class="btn btn-secondary btn-block mt-md" onclick="backToCart()">Back to Cart</button>
     </div>
   </div>
 
@@ -935,7 +1083,7 @@
       document.getElementById('cartCount').textContent = cart.reduce((sum, c) => sum + c.quantity, 0);
       
       if (cart.length === 0) {
-        container.innerHTML = `<div class="cart-empty"><div class="icon">&#128722;</div><p>Your cart is empty</p><p style="font-size: 13px; margin-top: 8px;">Tap products to add them</p></div>`;
+        container.innerHTML = `<div class="cart-empty"><div class="icon">&#128722;</div><p>Your cart is empty</p><p class="font-small mt-sm">Tap products to add them</p></div>`;
         document.getElementById('cartSubtotal').textContent = 'R0.00';
         document.getElementById('cartTax').textContent = 'R0.00';
         document.getElementById('cartTotal').textContent = 'R0.00';
@@ -1010,7 +1158,7 @@
     function showReceipt(sale) {
       document.getElementById('receiptPaper').innerHTML = `
         <div class="receipt-header">
-          <div class="store-logo" style="font-size: 32px; font-weight: 700;">QuickMart</div>
+          <div class="store-logo store-logo-text">QuickMart</div>
           <div class="info">
             Self-Service POS<br>
             123 Main Street, Johannesburg<br>
@@ -1033,7 +1181,7 @@
           <div class="receipt-row"><span>Subtotal:</span><span>R${sale.subtotal.toFixed(2)}</span></div>
           <div class="receipt-row"><span>VAT (15%):</span><span>R${sale.tax.toFixed(2)}</span></div>
           <div class="receipt-row total"><span>TOTAL:</span><span>R${sale.total.toFixed(2)}</span></div>
-          <div class="receipt-row" style="margin-top: 12px;"><span>Payment:</span><span>${sale.paymentMethod.toUpperCase()}</span></div>
+          <div class="receipt-row receipt-payment-row"><span>Payment:</span><span>${sale.paymentMethod.toUpperCase()}</span></div>
         </div>
         <div class="receipt-footer">
           <strong>Customer: ${sale.customerName}</strong><br><br>
@@ -1076,40 +1224,70 @@
 
       if (tab === 'dashboard') {
         const stats = await api.get('/stats');
+        const trend = await api.get('/stats/trend');
         const lowStock = products.filter(p => p.stock < 20);
         const recentSales = sales.slice(-5).reverse();
+        const maxRevenue = Math.max(...trend.days.map(d => d.revenue), 1);
         
         content.innerHTML = `
           <h2 class="admin-title">Store Dashboard</h2>
-          <div class="stats-grid">
-            <div class="stat-box highlight">
-              <div class="icon">&#128176;</div>
-              <div class="value">R${stats.todaySales}</div>
-              <div class="label">Today's Revenue</div>
+          
+          <!-- Performance Summary -->
+          <div class="performance-summary">
+            <div class="perf-card ${parseFloat(trend.summary.trendPercent) >= 0 ? 'success' : 'danger'}">
+              <div class="perf-value">R${stats.todaySales}</div>
+              <div class="perf-label">Today's Revenue</div>
+              <div class="perf-trend ${parseFloat(trend.summary.trendPercent) >= 0 ? 'trend-up' : 'trend-down'}">
+                ${parseFloat(trend.summary.trendPercent) >= 0 ? '+' : ''}${trend.summary.trendPercent}% vs yesterday
+              </div>
             </div>
+            <div class="perf-card success">
+              <div class="perf-value">R${trend.summary.totalRevenue}</div>
+              <div class="perf-label">7-Day Revenue</div>
+              <div class="perf-trend">Avg: R${trend.summary.avgDaily}/day</div>
+            </div>
+            <div class="perf-card ${stats.lowStockItems > 3 ? 'warning' : 'success'}">
+              <div class="perf-value">${stats.totalProducts}</div>
+              <div class="perf-label">Products</div>
+              <div class="perf-trend ${stats.lowStockItems > 0 ? 'trend-down' : ''}">${stats.lowStockItems} items low stock</div>
+            </div>
+          </div>
+
+          <!-- Revenue Graph -->
+          <div class="graph-container">
+            <div class="graph-title">7-Day Revenue Trend</div>
+            <div class="graph-bars">
+              ${trend.days.map(d => {
+                const height = maxRevenue > 0 ? Math.max(4, (d.revenue / maxRevenue) * 180) : 4;
+                const barClass = d.revenue > parseFloat(trend.summary.avgDaily) ? 'positive' : d.revenue > 0 ? '' : 'negative';
+                return `
+                  <div class="graph-bar-wrapper">
+                    <div class="graph-value">R${d.revenue.toFixed(0)}</div>
+                    <div class="graph-bar ${barClass}" style="height: ${height}px"></div>
+                    <div class="graph-label">${d.day}<br>${d.date}</div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+            <div class="graph-legend">
+              <div class="legend-item"><div class="legend-dot positive"></div>Above Average</div>
+              <div class="legend-item"><div class="legend-dot neutral"></div>Below Average</div>
+              <div class="legend-item"><div class="legend-dot negative"></div>No Sales</div>
+            </div>
+          </div>
+          
+          <div class="stats-grid">
             <div class="stat-box">
-              <div class="icon">&#128722;</div>
               <div class="value">${stats.todayTransactions}</div>
               <div class="label">Transactions Today</div>
             </div>
             <div class="stat-box">
-              <div class="icon">&#128230;</div>
-              <div class="value">${stats.totalProducts}</div>
-              <div class="label">Total Products</div>
-            </div>
-            <div class="stat-box">
-              <div class="icon">&#9888;</div>
-              <div class="value">${stats.lowStockItems}</div>
-              <div class="label">Low Stock Alerts</div>
-            </div>
-            <div class="stat-box">
-              <div class="icon">&#128101;</div>
               <div class="value">${stats.totalCustomers}</div>
               <div class="label">Registered Customers</div>
             </div>
           </div>
           
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+          <div class="dashboard-grid">
             <div class="data-card">
               <div class="data-card-header"><h3>Recent Sales</h3></div>
               <div class="data-card-body">
@@ -1122,7 +1300,7 @@
                         <td>${s.customerName}</td>
                         <td><strong>R${s.total.toFixed(2)}</strong></td>
                       </tr>
-                    `).join('') || '<tr><td colspan="3" style="text-align:center;color:#888;">No sales yet today</td></tr>'}
+                    `).join('') || '<tr><td colspan="3" class="empty-table-cell">No sales yet today</td></tr>'}
                   </tbody>
                 </table>
               </div>
@@ -1146,7 +1324,7 @@
                           </td>
                         </tr>
                       `;
-                    }).join('') || '<tr><td colspan="2" style="text-align:center;color:#888;">All items well stocked</td></tr>'}
+                    }).join('') || '<tr><td colspan="2" class="empty-table-cell">All items well stocked</td></tr>'}
                   </tbody>
                 </table>
               </div>
@@ -1160,7 +1338,7 @@
           <div class="data-card">
             <div class="data-card-header">
               <h3>All Transactions</h3>
-              <span style="color: #888;">${sales.length} total sales</span>
+              <span class="text-muted">${sales.length} total sales</span>
             </div>
             <div class="data-card-body">
               <table class="data-table">
@@ -1175,11 +1353,11 @@
                       <td>${s.items.length} items</td>
                       <td>R${s.subtotal.toFixed(2)}</td>
                       <td>R${s.tax.toFixed(2)}</td>
-                      <td><strong style="color: var(--success);">R${s.total.toFixed(2)}</strong></td>
+                      <td><strong class="text-success">R${s.total.toFixed(2)}</strong></td>
                       <td><span class="badge badge-success">${s.paymentMethod.toUpperCase()}</span></td>
                       <td>${new Date(s.timestamp).toLocaleString()}</td>
                     </tr>
-                  `).join('') || '<tr><td colspan="8" style="text-align:center;color:#888;padding:40px;">No sales recorded yet</td></tr>'}
+                  `).join('') || '<tr><td colspan="8" class="empty-table-cell">No sales recorded yet</td></tr>'}
                 </tbody>
               </table>
             </div>
@@ -1192,12 +1370,12 @@
           <div class="data-card">
             <div class="data-card-header">
               <h3>All Products</h3>
-              <span style="color: #888;">${products.length} products</span>
+              <span class="text-muted">${products.length} products</span>
             </div>
             <div class="data-card-body">
               <table class="data-table">
                 <thead>
-                  <tr><th>Product Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Barcode</th></tr>
+                  <tr><th>Product Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Add Stock</th><th>Barcode</th></tr>
                 </thead>
                 <tbody>
                   ${products.map(p => {
@@ -1208,9 +1386,15 @@
                         <td><strong>${p.name}</strong></td>
                         <td>${p.category}</td>
                         <td>R${p.price.toFixed(2)}</td>
-                        <td>${p.stock} units</td>
-                        <td><span class="badge ${badge}">${status}</span></td>
-                        <td style="font-family: monospace; color: #888;">${p.barcode || '-'}</td>
+                        <td><span id="stock-${p.id}">${p.stock}</span> units</td>
+                        <td><span class="badge ${badge}" id="status-${p.id}">${status}</span></td>
+                        <td>
+                          <div class="stock-update-form">
+                            <input type="number" class="stock-input" id="qty-${p.id}" value="10" min="1" max="999">
+                            <button class="btn-stock btn-stock-add" onclick="addStock(${p.id})">Add</button>
+                          </div>
+                        </td>
+                        <td class="font-mono text-muted">${p.barcode || '-'}</td>
                       </tr>
                     `;
                   }).join('')}
@@ -1226,7 +1410,7 @@
           <div class="data-card">
             <div class="data-card-header">
               <h3>Registered Customers</h3>
-              <span style="color: #888;">${customers.length} members</span>
+              <span class="text-muted">${customers.length} members</span>
             </div>
             <div class="data-card-body">
               <table class="data-table">
@@ -1260,7 +1444,7 @@
         content.innerHTML = `
           <h2 class="admin-title">Sales Reports</h2>
           <div class="stats-grid">
-            <div class="stat-box highlight">
+            <div class="stat-box">
               <div class="value">R${totalRevenue.toFixed(2)}</div>
               <div class="label">Total Revenue</div>
             </div>
@@ -1286,7 +1470,7 @@
                       <td>${p[0]}</td>
                       <td><span class="badge badge-success">${p[1]} units</span></td>
                     </tr>
-                  `).join('') || '<tr><td colspan="3" style="text-align:center;color:#888;">No sales data yet</td></tr>'}
+                  `).join('') || '<tr><td colspan="3" class="empty-table-cell">No sales data yet</td></tr>'}
                 </tbody>
               </table>
             </div>
@@ -1294,6 +1478,46 @@
         `;
       }
     }
+
+    // ========== STOCK MANAGEMENT ==========
+    async function addStock(productId) {
+      const qtyInput = document.getElementById(`qty-${productId}`);
+      const quantity = parseInt(qtyInput.value) || 10;
+      
+      const result = await api.put(`/products/${productId}/stock`, { quantity });
+      
+      if (result.success) {
+        // Update the UI
+        const product = result.product;
+        document.getElementById(`stock-${productId}`).textContent = product.stock;
+        
+        // Update status badge
+        const status = product.stock === 0 ? 'Out of Stock' : product.stock < 10 ? 'Critical' : product.stock < 20 ? 'Low Stock' : 'In Stock';
+        const badge = product.stock === 0 ? 'badge-danger' : product.stock < 10 ? 'badge-danger' : product.stock < 20 ? 'badge-warning' : 'badge-success';
+        const statusEl = document.getElementById(`status-${productId}`);
+        statusEl.textContent = status;
+        statusEl.className = `badge ${badge}`;
+        
+        // Update local products array
+        const idx = products.findIndex(p => p.id === productId);
+        if (idx !== -1) products[idx].stock = product.stock;
+        
+        // Flash success
+        qtyInput.style.borderColor = '#2d5a27';
+        setTimeout(() => qtyInput.style.borderColor = '', 1000);
+      }
+    }
+
+    // Add PUT method support to api
+    api.put = async (url, data) => {
+      try {
+        const res = await fetch('/api' + url, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        return await res.json();
+      } catch (e) {
+        console.error('API Error:', e);
+        return { success: false, error: 'Connection error' };
+      }
+    };
   </script>
 </body>
 </html>
