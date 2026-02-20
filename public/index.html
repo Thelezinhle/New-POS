@@ -9,9 +9,9 @@
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f0f0; color: #333; }
     
     :root {
-      --primary: #1a1a2e;
-      --secondary: #16213e;
-      --accent: #0f3460;
+      --primary: #4CAF50;
+      --secondary: #2E7D32;
+      --accent: #1B5E20;
       --light: #e8e8e8;
       --white: #ffffff;
       --success: #2d5a27;
@@ -28,37 +28,603 @@
     .logo-icon {
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
     }
-    .logo-icon svg { width: 30px; height: 30px; }
+    .logo-icon span { font-size: 28px; }
     .logo-text { font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -1px; }
     .logo-text span { font-weight: 300; opacity: 0.8; }
 
-    /* WELCOME SCREEN */
+    /* WELCOME SCREEN - Modern Clean Design (Snack Haven Style) */
     .welcome-screen {
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+      background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+      display: flex;
+      flex-direction: column;
+      color: #1a1a2e;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Subtle background pattern */
+    .welcome-screen::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 0%, rgba(255, 140, 0, 0.03) 100%);
+      pointer-events: none;
+    }
+    
+    /* Top Navigation */
+    .welcome-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      position: relative;
+      z-index: 10;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+    
+    .nav-logo .logo-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .nav-logo .logo-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .nav-logo .logo-icon svg path,
+    .nav-logo .logo-icon svg circle {
+      stroke: #fff;
+      fill: none;
+    }
+    
+    .nav-logo .logo-icon svg circle {
+      fill: #fff;
+    }
+    
+    .nav-logo .logo-icon span {
+      font-size: 24px;
+    }
+    
+    .nav-logo h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    
+    .nav-logo h2 span {
+      font-weight: 400;
+      color: #4CAF50;
+    }
+    
+    .nav-links {
+      display: none;
+    }
+    
+    .nav-cart {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .nav-cart:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+    }
+    
+    /* Main split container */
+    .welcome-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 80px;
+      gap: 80px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Left side - Content */
+    .welcome-left {
+      flex: 1;
+      max-width: 550px;
+      text-align: left;
+    }
+    
+    .welcome-badge {
+      display: none;
+    }
+    
+    .welcome-headline {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 25px;
+      color: #1a1a2e;
+    }
+    
+    .welcome-headline .highlight {
+      color: #4CAF50;
+    }
+    
+    .welcome-desc {
+      font-size: 17px;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 35px;
+      max-width: 450px;
+    }
+    
+    /* Start Shopping Button - Green */
+    .start-shopping-btn {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      color: #fff;
+      padding: 18px 40px;
+      width: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      text-align: center;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(76, 175, 80, 0.35);
+      font-size: 17px;
+      font-weight: 600;
+    }
+    
+    .start-shopping-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(76, 175, 80, 0.45);
+    }
+    
+    .start-shopping-btn .icon {
+      font-size: 24px;
+    }
+    
+    .start-shopping-btn .arrow {
+      font-size: 20px;
+      transition: transform 0.3s;
+    }
+    
+    .start-shopping-btn:hover .arrow {
+      transform: translateX(5px);
+    }
+    
+    /* Stats Section */
+    .welcome-stats {
+      display: flex;
+      gap: 50px;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid #eee;
+    }
+    
+    .stat-item {
+      text-align: left;
+    }
+    
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: #888;
+    }
+    
+    /* Right side - Image */
+    .welcome-right {
+      flex: 1;
+      max-width: 520px;
+      position: relative;
+    }
+    
+    .welcome-image {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+    
+    .welcome-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* Top Rated Badge */
+    .image-badge {
+      display: none;
+    }
+    
+    .image-badge .badge-icon {
+      font-size: 20px;
+      color: #4CAF50;
+    }
+    
+    .image-badge .badge-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-top: 4px;
+    }
+    
+    /* Promo Cards - SA Colors */
+    .promo-cards {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .promo-card {
+      flex: 1;
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(76, 175, 80, 0.25);
+      border: none;
+      color: #fff;
+    }
+    
+    .promo-card:last-child {
+      background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+      box-shadow: 0 10px 30px rgba(46, 125, 50, 0.25);
+    }
+    
+    .promo-card h4 {
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    
+    .promo-card:last-child h4 {
+      color: #fff;
+    }
+    
+    .promo-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+      margin: 0;
+    }
+    
+    .promo-card:last-child p {
+      color: rgba(255,255,255,0.9);
+    }
+    
+    /* Promo card flex layout */
+    .promo-card-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .promo-card-icon {
+      width: 40px;
+      height: 40px;
+    }
+    
+    /* Discount Badge Sticker */
+    .discount-badge {
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+      border-radius: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      text-align: center;
-      padding: 40px;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+      animation: pulse-badge 2s infinite;
+      flex-shrink: 0;
     }
-    .welcome-logo { margin-bottom: 20px; }
-    .welcome-logo .logo-icon { width: 80px; height: 80px; margin: 0 auto 15px; }
-    .welcome-logo .logo-icon svg { width: 50px; height: 50px; }
-    .welcome-logo h1 { font-size: 52px; font-weight: 700; margin-bottom: 5px; }
-    .welcome-logo h1 span { font-weight: 300; opacity: 0.7; }
-    .welcome-subtitle { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 60px; }
+    .discount-badge .percent {
+      font-size: 18px;
+      font-weight: 800;
+      color: white;
+      line-height: 1;
+    }
+    .discount-badge .off {
+      font-size: 9px;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
     
-    .welcome-options { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; max-width: 1000px; }
+    .promo-card h4 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .promo-card p {
+      margin: 4px 0 0;
+    }
+    
+    /* Help modal styles */
+    .help-content {
+      text-align: left;
+      margin-top: 20px;
+    }
+    .help-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 10px;
+    }
+    .help-item:last-child {
+      margin-bottom: 0;
+      background: #e8f5e9;
+      border-left: 4px solid #4CAF50;
+    }
+    .help-item h4 {
+      margin-bottom: 8px;
+      color: #1a1a2e;
+    }
+    .help-item:last-child h4 {
+      color: #2d5a27;
+    }
+    .help-item p {
+      color: #666;
+      font-size: 14px;
+      margin: 0;
+    }
+    .help-close-btn {
+      margin-top: 25px;
+    }
+
+    /* Member Link - Green filled like Start Shopping */
+    .member-link {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      border: none;
+      color: #fff;
+      padding: 14px 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 30px;
+      font-size: 15px;
+      margin-left: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+    }
+    
+    .member-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4);
+    }
+    
+    .member-link .icon {
+      font-size: 18px;
+    }
+    
+    /* Hidden staff access */
+    .staff-hint {
+      display: none;
+      color: #aaa;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+    
+    .staff-hint.visible {
+      display: block;
+    }
+    
+    /* Bottom bar - Contact & Help */
+    .welcome-bottom {
+      background: #fff;
+      border-top: 1px solid #eee;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .contact-info {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .contact-item .icon {
+      font-size: 18px;
+      color: #4CAF50;
+    }
+    
+    .contact-item a {
+      color: #555;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .contact-item a:hover {
+      color: #4CAF50;
+    }
+    
+    .help-btn {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border: none;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    
+    .help-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(26, 26, 46, 0.3);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .welcome-main {
+        flex-direction: column;
+        padding: 40px 30px;
+        gap: 40px;
+      }
+      .welcome-left {
+        text-align: center;
+        max-width: 100%;
+      }
+      .welcome-desc {
+        max-width: 100%;
+      }
+      .welcome-headline {
+        font-size: 40px;
+      }
+      .welcome-right {
+        max-width: 100%;
+        order: -1;
+      }
+      .welcome-image img {
+        height: 280px;
+      }
+      .welcome-stats {
+        justify-content: center;
+      }
+      .welcome-nav {
+        padding: 15px 20px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .welcome-bottom {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+      .contact-info {
+        justify-content: center;
+      }
+    }
+    
+    /* Legacy styles */
+    .welcome-content { display: none; }
+    .welcome-logo { display: none; }
+    .welcome-subtitle { display: none; }
+    .welcome-options { display: flex; gap: 15px; flex-wrap: wrap; }
+    .welcome-logo h1 span { font-weight: 300; opacity: 0.7; }
+    .welcome-subtitle { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 35px; }
+    
+    .welcome-options { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; }
+    
+    /* Main Start Shopping Button - Premium */
+    .start-shopping-btn {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      color: #fff;
+      padding: 35px 50px;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: none;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .start-shopping-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+    .start-shopping-btn:hover::before { left: 100%; }
+    .start-shopping-btn:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 25px 60px rgba(76, 175, 80, 0.5); }
+    .start-shopping-btn .icon { font-size: 64px; margin-bottom: 12px; }
+    .start-shopping-btn h2 { font-size: 28px; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px; }
+    .start-shopping-btn p { font-size: 15px; opacity: 0.9; }
+    
+    /* Member Sign In Link - Green like other buttons */
+    .member-link {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      border: none;
+      color: #fff;
+      padding: 16px 35px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+    }
+    .member-link:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4); }
+    .member-link .icon { font-size: 20px; }
+    
+    /* Hidden staff access indicator */
+    .staff-hint { display: none; color: rgba(255,255,255,0.3); font-size: 12px; margin-top: 20px; }
+    .staff-hint.visible { display: block; }
+    
+    /* Legacy styles for compatibility */
     .welcome-option {
       background: rgba(255,255,255,0.95);
       color: #333;
@@ -70,14 +636,32 @@
       text-align: center;
       border-radius: 16px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      display: none; /* Hidden by default */
     }
     .welcome-option:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
     .welcome-option .icon { font-size: 48px; margin-bottom: 15px; }
     .welcome-option h2 { font-size: 22px; margin-bottom: 10px; color: var(--primary); }
     .welcome-option p { color: #666; font-size: 14px; line-height: 1.5; }
 
-    .welcome-footer { margin-top: 60px; color: rgba(255,255,255,0.5); font-size: 14px; }
-    .welcome-footer .currency { background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 20px; display: inline-block; margin-top: 15px; }
+    .welcome-footer { 
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      color: rgba(255,255,255,0.5); 
+      font-size: 14px; 
+      z-index: 1;
+    }
+    .welcome-footer .currency { 
+      background: rgba(255,255,255,0.08);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      padding: 10px 25px; 
+      border-radius: 25px; 
+      display: inline-block; 
+      margin-top: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
 
     /* MODAL */
     .modal-overlay {
@@ -243,7 +827,7 @@
     }
     .product-card {
       background: #fff;
-      padding: 20px;
+      padding: 15px;
       text-align: center;
       cursor: pointer;
       border-radius: 16px;
@@ -251,7 +835,15 @@
       transition: all 0.3s;
       box-shadow: 0 3px 15px rgba(0,0,0,0.05);
     }
-    .product-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .product-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(76,175,80,0.15); }
+    .product-card .product-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin: 0 auto 12px;
+      background: #f5f5f5;
+    }
     .product-card .tag {
       font-size: 10px;
       color: #888;
@@ -363,7 +955,7 @@
     .payment-methods { display: flex; gap: 15px; }
     .payment-method {
       flex: 1;
-      padding: 25px 15px;
+      padding: 20px 15px;
       text-align: center;
       border: 3px solid #e0e0e0;
       border-radius: 12px;
@@ -372,8 +964,8 @@
       transition: all 0.2s;
     }
     .payment-method:hover { border-color: var(--primary); }
-    .payment-method.selected { border-color: var(--primary); background: #f8f8ff; }
-    .payment-method .icon { font-size: 32px; margin-bottom: 8px; }
+    .payment-method.selected { border-color: var(--primary); background: #f0fff0; }
+    .payment-method .icon { width: 50px; height: 35px; object-fit: contain; margin: 0 auto 10px; display: block; }
     .payment-method .label { font-weight: 700; font-size: 14px; }
 
     /* RECEIPT */
@@ -640,43 +1232,144 @@
 <body>
   <!-- WELCOME SCREEN -->
   <div id="welcomeScreen" class="welcome-screen">
-    <div class="welcome-logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 6h18l-2 13H5L3 6z" stroke="#1a1a2e" stroke-width="2" fill="none"/>
-          <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="#1a1a2e" stroke-width="2"/>
-          <circle cx="9" cy="11" r="1" fill="#1a1a2e"/>
-          <circle cx="15" cy="11" r="1" fill="#1a1a2e"/>
-          <path d="M9 14h6" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+    <!-- Top Navigation -->
+    <nav class="welcome-nav">
+      <div class="nav-logo" id="welcomeLogo" onclick="handleLogoTap()">
+        <div class="logo-icon">
+          <span>&#128722;</span>
+        </div>
+        <h2>Quick<span>Mart</span></h2>
       </div>
-      <h1>Quick<span>Mart</span></h1>
-    </div>
-    <p class="welcome-subtitle">Self-Service Point of Sale System</p>
-    
-    <div class="welcome-options">
-      <button class="welcome-option" onclick="startGuest()">
-        <div class="icon">&#128722;</div>
-        <h2>Quick Checkout</h2>
-        <p>Shop as guest customer. Scan items, pay and collect your receipt.</p>
-      </button>
       
-      <button class="welcome-option" onclick="openLoginModal('customer')">
-        <div class="icon">&#128100;</div>
-        <h2>Member Sign In</h2>
-        <p>Log in to earn loyalty points and view your purchase history.</p>
-      </button>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
       
-      <button class="welcome-option" onclick="openLoginModal('admin')">
-        <div class="icon">&#128736;</div>
-        <h2>Staff Portal</h2>
-        <p>Admin access for inventory management, sales reports and more.</p>
+      <button class="nav-cart" onclick="startGuest()">
+        <span>&#128722;</span>
+        Start Shopping
       </button>
+    </nav>
+    
+    <!-- Main Split Content -->
+    <div class="welcome-main">
+      <!-- Left Side - Content -->
+      <div class="welcome-left">
+        <div class="welcome-badge">
+          <span>&#128640;</span> Now Open for Self-Service
+        </div>
+        
+        <h1 class="welcome-headline">
+          Smart <span class="highlight">Self-Checkout</span> Experience
+        </h1>
+        
+        <p class="welcome-desc">
+          Experience the perfect blend of speed and convenience. Our self-service kiosks let you scan, pay, and go in seconds - no queues, no waiting!
+        </p>
+        
+        <div class="welcome-options">
+          <button class="start-shopping-btn" onclick="startGuest()">
+            <span class="icon">&#128722;</span>
+            Start Shopping
+            <span class="arrow">&#8594;</span>
+          </button>
+          
+          <button class="member-link" onclick="openLoginModal('customer')">
+            <span class="icon">&#128100;</span>
+            Member Sign In
+          </button>
+        </div>
+        
+        <p id="staffHint" class="staff-hint">Tap logo 5 times for staff access</p>
+      </div>
+      
+      <!-- Right Side - Image & Info -->
+      <div class="welcome-right">
+        <div class="welcome-image">
+          <img src="images/simon-kadula--gkndM1GvSA-unsplash%20(1).jpg" alt="Self-Service POS Terminal">
+          <div class="image-badge">
+            <div class="badge-icon">&#11088;</div>
+            <div class="badge-text">Top Rated</div>
+          </div>
+        </div>
+        
+        <div class="promo-cards">
+          <div class="promo-card">
+            <div class="promo-card-content">
+              <div class="discount-badge">
+                <span class="percent">10%</span>
+                <span class="off">OFF</span>
+              </div>
+              <div>
+                <h4>Member Rewards</h4>
+                <p>Save 10% on every purchase!</p>
+              </div>
+            </div>
+          </div>
+          <div class="promo-card">
+            <div class="promo-card-content">
+              <img class="promo-card-icon" src="https://img.icons8.com/color/48/bank-card-back-side.png" alt="Payment">
+              <div>
+                <h4>Pay Your Way</h4>
+                <p>Card, Cash, SnapScan & EFT</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <div class="welcome-footer">
-      <p>Touch anywhere to begin your shopping experience</p>
-      <div class="currency">All prices displayed in South African Rand (ZAR) | VAT Inclusive</div>
+    <!-- Bottom Bar - Contact & Help -->
+    <div class="welcome-bottom">
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="icon">&#128222;</span>
+          <a href="tel:+27123456789">+27 12 345 6789</a>
+        </div>
+        <div class="contact-item">
+          <span class="icon">&#128231;</span>
+          <a href="mailto:support@quickmart.co.za">support@quickmart.co.za</a>
+        </div>
+        <div class="contact-item">
+          <span class="icon">&#128205;</span>
+          <span>123 Market Street, Johannesburg</span>
+        </div>
+      </div>
+      
+      <button class="help-btn" onclick="showHelpModal()">
+        <span>&#10067;</span>
+        Need Help?
+      </button>
+    </div>
+  </div>
+  
+  <!-- HELP MODAL -->
+  <div id="helpModal" class="modal-overlay">
+    <span class="modal-close" onclick="closeHelpModal()">&times;</span>
+    <div class="modal-box">
+      <h2>&#128161; How Can We Help?</h2>
+      <div class="help-content">
+        <div class="help-item">
+          <h4>&#128722; How do I start shopping?</h4>
+          <p>Simply tap the green "Start Shopping" button. You can browse products, add them to your cart, and checkout without any account.</p>
+        </div>
+        <div class="help-item">
+          <h4>&#128100; Why should I sign in?</h4>
+          <p>Members earn loyalty points on every purchase! Points can be redeemed for discounts. You can also view your purchase history.</p>
+        </div>
+        <div class="help-item">
+          <h4>&#128179; What payment methods are accepted?</h4>
+          <p>We accept Cash, Card payments, and Mobile wallets (SnapScan, Zapper). All payments are secure.</p>
+        </div>
+        <div class="help-item">
+          <h4>&#128222; Still need help?</h4>
+          <p>Press the assistance button or call <strong>+27 12 345 6789</strong>. Our staff will be with you shortly!</p>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block help-close-btn" onclick="closeHelpModal()">Got it!</button>
     </div>
   </div>
 
@@ -747,10 +1440,7 @@
     <header class="header">
       <div class="logo">
         <div class="logo-icon">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M3 6h18l-2 13H5L3 6z" stroke="#1a1a2e" stroke-width="2"/>
-            <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="#1a1a2e" stroke-width="2"/>
-          </svg>
+          <span>&#128722;</span>
         </div>
         <div class="logo-text">Quick<span>Mart</span></div>
       </div>
@@ -803,10 +1493,7 @@
     <header class="header">
       <div class="logo">
         <div class="logo-icon">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M3 6h18l-2 13H5L3 6z" stroke="#1a1a2e" stroke-width="2"/>
-            <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="#1a1a2e" stroke-width="2"/>
-          </svg>
+          <span>&#128722;</span>
         </div>
         <div class="logo-text">Quick<span>Mart</span> Admin</div>
       </div>
@@ -849,15 +1536,15 @@
         <h3>Select Payment Method</h3>
         <div class="payment-methods">
           <div class="payment-method selected" onclick="selectPayment('card', this)">
-            <div class="icon">&#128179;</div>
+            <img class="icon" src="https://img.icons8.com/color/96/visa.png" alt="Card">
             <div class="label">Card</div>
           </div>
           <div class="payment-method" onclick="selectPayment('cash', this)">
-            <div class="icon">&#128181;</div>
+            <img class="icon" src="https://img.icons8.com/color/96/cash-in-hand.png" alt="Cash">
             <div class="label">Cash</div>
           </div>
           <div class="payment-method" onclick="selectPayment('mobile', this)">
-            <div class="icon">&#128241;</div>
+            <img class="icon" src="https://img.icons8.com/color/96/apple-pay.png" alt="Mobile">
             <div class="label">Mobile</div>
           </div>
         </div>
@@ -885,6 +1572,38 @@
     let loginMode = 'customer';
     let products = [];
     let customers = [];
+    
+    // ========== HIDDEN STAFF ACCESS ==========
+    let logoTapCount = 0;
+    let logoTapTimer = null;
+    
+    function handleLogoTap() {
+      logoTapCount++;
+      
+      // Show hint after 3 taps
+      if (logoTapCount >= 3) {
+        document.getElementById('staffHint').classList.add('visible');
+      }
+      
+      // Open staff login after 5 taps
+      if (logoTapCount >= 5) {
+        logoTapCount = 0;
+        document.getElementById('staffHint').classList.remove('visible');
+        openLoginModal('admin');
+      }
+      
+      // Reset counter after 2 seconds of no taps
+      clearTimeout(logoTapTimer);
+      logoTapTimer = setTimeout(() => {
+        logoTapCount = 0;
+        document.getElementById('staffHint').classList.remove('visible');
+      }, 2000);
+    }
+    
+    // Check for staff URL parameter (e.g., ?staff=1)
+    if (window.location.search.includes('staff=1')) {
+      setTimeout(() => openLoginModal('admin'), 100);
+    }
     let sales = [];
     let cart = [];
     let selectedCategory = 'All';
@@ -930,6 +1649,14 @@
       document.getElementById('loginModal').classList.remove('active');
       document.getElementById('loginUsername').value = '';
       document.getElementById('loginPassword').value = '';
+    }
+
+    function showHelpModal() {
+      document.getElementById('helpModal').classList.add('active');
+    }
+
+    function closeHelpModal() {
+      document.getElementById('helpModal').classList.remove('active');
     }
 
     function showRegister() {
@@ -1024,6 +1751,56 @@
       renderProducts();
     }
 
+    // Product images mapping by category and name
+    function getProductImage(category, name) {
+      const images = {
+        // Beverages
+        'Coca-Cola 500ml': 'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=100&h=100&fit=crop',
+        'Pepsi 500ml': 'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=100&h=100&fit=crop',
+        'Spring Water 1L': 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=100&h=100&fit=crop',
+        'Orange Juice 1L': 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=100&h=100&fit=crop',
+        'Coffee Latte': 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=100&h=100&fit=crop',
+        'Energy Drink': 'https://images.unsplash.com/photo-1527960471264-932f39eb5846?w=100&h=100&fit=crop',
+        // Snacks
+        'Lays Chips Original': 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=100&h=100&fit=crop',
+        'Doritos Nacho': 'https://images.unsplash.com/photo-1600952841320-db92ec4047ca?w=100&h=100&fit=crop',
+        'Peanuts Salted': 'https://images.unsplash.com/photo-1567892737950-30c4db37cd89?w=100&h=100&fit=crop',
+        'Chocolate Bar': 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=100&h=100&fit=crop',
+        'Gummy Bears': 'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=100&h=100&fit=crop',
+        // Bakery
+        'Fresh Croissant': 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=100&h=100&fit=crop',
+        'Muffin Blueberry': 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=100&h=100&fit=crop',
+        'Baguette': 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=100&h=100&fit=crop',
+        // Dairy
+        'Whole Milk 1L': 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=100&h=100&fit=crop',
+        'Greek Yogurt': 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=100&h=100&fit=crop',
+        'Cheddar Cheese 200g': 'https://images.unsplash.com/photo-1618164436241-4473940d1f5c?w=100&h=100&fit=crop',
+        'Butter 250g': 'https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=100&h=100&fit=crop',
+        // Fresh Food
+        'Fresh Salad': 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=100&h=100&fit=crop',
+        'Sandwich Ham & Cheese': 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=100&h=100&fit=crop',
+        'Fruit Cup': 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=100&h=100&fit=crop',
+        'Sushi Box': 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=100&h=100&fit=crop',
+        // Household
+        'Paper Towels': 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=100&h=100&fit=crop',
+        'Hand Soap': 'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?w=100&h=100&fit=crop',
+      };
+      
+      // Return specific image or category default
+      if (images[name]) return images[name];
+      
+      const categoryDefaults = {
+        'Beverages': 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=100&h=100&fit=crop',
+        'Snacks': 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=100&h=100&fit=crop',
+        'Dairy': 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=100&h=100&fit=crop',
+        'Bakery': 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=100&h=100&fit=crop',
+        'Fresh Food': 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=100&h=100&fit=crop',
+        'Household': 'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=100&h=100&fit=crop',
+      };
+      
+      return categoryDefaults[category] || 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=100&h=100&fit=crop';
+    }
+
     function renderProducts() {
       const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
       const filtered = products.filter(p => {
@@ -1032,14 +1809,17 @@
         return matchCat && matchSearch;
       });
 
-      document.getElementById('productsGrid').innerHTML = filtered.map(p => `
+      document.getElementById('productsGrid').innerHTML = filtered.map(p => {
+        const imgUrl = getProductImage(p.category, p.name);
+        return `
         <div class="product-card ${p.stock <= 0 ? 'out' : ''}" onclick="addToCart(${p.id})">
+          <img class="product-img" src="${imgUrl}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/80x80?text=${encodeURIComponent(p.name.substring(0,8))}'">
           <div class="tag">${p.category}</div>
           <div class="name">${p.name}</div>
           <div class="price">R${p.price.toFixed(2)}</div>
           <div class="stock">${p.stock > 0 ? p.stock + ' available' : 'Out of stock'}</div>
         </div>
-      `).join('');
+      `}).join('');
     }
 
     function filterProducts() { renderProducts(); }
